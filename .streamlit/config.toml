@@ -1,0 +1,14 @@
+[theme]
+base = "light"
+primaryColor = "#1c5cab"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f4f5f7"
+textColor = "#1d2129"
+borderColor = "#e3e5e9"
+font = "Figtree:https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap"
+headingFontWeights = 650
+baseRadius = "small"
+showSidebarBorder = true
+
+[client]
+toolbarMode = "minimal"

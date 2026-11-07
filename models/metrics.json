@@ -1,0 +1,86 @@
+{
+  "trained_at": "2026-11-07T12:12:20",
+  "best_model": "Naiwny Bayes (Complement)",
+  "n_train": 7727,
+  "n_test": 1932,
+  "class_counts": {
+    "pozytywny": 4930,
+    "negatywny": 4729
+  },
+  "comparison": {
+    "Regresja logistyczna": {
+      "accuracy": 0.8592,
+      "f1_macro": 0.8592,
+      "f1_negative": 0.8604,
+      "f1_positive": 0.858
+    },
+    "Naiwny Bayes (Complement)": {
+      "accuracy": 0.8628,
+      "f1_macro": 0.8628,
+      "f1_negative": 0.864,
+      "f1_positive": 0.8616
+    },
+    "Liniowy SVM": {
+      "accuracy": 0.8628,
+      "f1_macro": 0.8628,
+      "f1_negative": 0.8612,
+      "f1_positive": 0.8645
+    }
+  },
+  "confusion_matrix": [
+    [
+      842,
+      104
+    ],
+    [
+      161,
+      825
+    ]
+  ],
+  "top_words": {
+    "negatywny": [
+      "useless",
+      "uninstalled",
+      "disappointed",
+      "deleted",
+      "an account",
+      "waste",
+      "sign",
+      "restore",
+      "very bad",
+      "too complicated",
+      "no thanks",
+      "not working",
+      "waste of",
+      "refund",
+      "not worth",
+      "premium feature",
+      "can even",
+      "poor",
+      "uninstalling",
+      "not work"
+    ],
+    "pozytywny": [
+      "amazing app",
+      "it helps",
+      "very useful",
+      "app love",
+      "helps me",
+      "helps",
+      "helped me",
+      "helped",
+      "on track",
+      "excellent",
+      "superb",
+      "so far",
+      "really helps",
+      "best app",
+      "amazing",
+      "handy",
+      "organised",
+      "easy and",
+      "really helped",
+      "stay organized"
+    ]
+  }
+}
