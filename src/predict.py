@@ -1,7 +1,5 @@
 """
 Predykcja sentymentu.
-
-    predict_sentiment(texts)             -> własny model (TF-IDF + klasyfikator)
 """
 
 from functools import lru_cache

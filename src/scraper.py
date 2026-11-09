@@ -43,11 +43,6 @@ def extract_app_id(user_input: str):
 
 def _top_result_id(query: str, lang: str, country: str):
     """Zwraca ID aplikacji z wyróżnionej karty na górze wyników wyszukiwania.
-
-    Google Play pokazuje najlepiej pasującą aplikację (np. główny TikTok) jako
-    osobną, dużą kartę. Biblioteka google-play-scraper czasem nie potrafi odczytać
-    jej ID, więc szukamy go sami: bierzemy pierwszy link do aplikacji
-    ("/store/apps/details?id=...") w kodzie strony z wynikami.
     """
     url = Formats.Searchresults.build(query=quote(query), lang=lang, country=country)
     try:
@@ -61,10 +56,10 @@ def _top_result_id(query: str, lang: str, country: str):
 def search_apps(query: str, lang: str = "en", country: str = "us", n_hits: int = 8) -> list:
     """Wyszukuje aplikacje po nazwie. Zwraca listę słowników (appId, title, ...)."""
     results = search(query, lang=lang, country=country, n_hits=n_hits)
-    # bywa, że wyróżniony pierwszy wynik nie ma appId – pomijamy takie
+    # bywa, że wyróżniony pierwszy wynik nie ma appId - pomijamy takie
     results = [r for r in results if r.get("appId")]
 
-    # ... ale próbujemy odzyskać tę wyróżnioną aplikację i wstawić ją na początek listy
+    # ale próbujemy odzyskać tę wyróżnioną aplikację i wstawić ją na początek listy
     try:
         top_id = _top_result_id(query, lang, country)
         if top_id and top_id not in {r["appId"] for r in results}:
@@ -80,7 +75,7 @@ def find_app(user_input: str, lang: str = "en", country: str = "us") -> list:
 
     Obsługuje trzy przypadki:
         link do Google Play  -> jedna aplikacja (ID wyciągnięte z linku)
-        ID aplikacji         -> jedna aplikacja (jeśli takie ID istnieje)
+        ID aplikacji -> jedna aplikacja (jeśli takie ID istnieje)
         nazwa, np. "spotify" -> lista wyników wyszukiwania
 
     Zwraca listę słowników {"appId": ..., "title": ...}.
@@ -126,9 +121,6 @@ def fetch_reviews(
     sort: str = "Najnowsze",
 ) -> pd.DataFrame:
     """Pobiera recenzje aplikacji i zwraca DataFrame.
-
-    Kolumny są takie same jak w zbiorze z Kaggle (content, score, at...),
-    więc dane treningowe i dane do predykcji mają tę samą strukturę.
     """
     result, _ = reviews(
         app_id,

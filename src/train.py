@@ -3,14 +3,12 @@ Trening modelu sentymentu.
 
 Porównuje trzy klasyfikatory na tych samych cechach TF-IDF:
     - regresja logistyczna
-    - naiwny Bayes (ComplementNB, dobrze radzi sobie z niezbalansowanymi klasami)
+    - naiwny Bayes 
     - liniowy SVM (z kalibracją, żeby zwracał prawdopodobieństwa)
 
 Najlepszy model (wg F1 makro na zbiorze testowym) zapisywany jest do
 models/sentiment_model.joblib, a metryki do models/metrics.json.
 
-Uruchomienie (z głównego folderu projektu):
-    python -m src.train
 """
 
 import json
@@ -125,7 +123,7 @@ def main():
     ConfusionMatrixDisplay(cm, display_labels=[LABEL_NAMES[0], LABEL_NAMES[1]]).plot(
         ax=ax, cmap="Blues", colorbar=False
     )
-    ax.set_title(f"Macierz pomyłek – {best_name}")
+    ax.set_title(f"Macierz pomyłek - {best_name}")
     ax.set_xlabel("Predykcja")
     ax.set_ylabel("Prawdziwa etykieta")
     fig.tight_layout()
@@ -156,8 +154,8 @@ def top_words(pipeline, n: int = 20) -> dict:
 
     Każdy z trzech modeli przechowuje "wagi" słów inaczej:
         regresja logistyczna -> coef_ (dodatnia waga = w stronę opinii pozytywnej)
-        naiwny Bayes         -> feature_log_prob_ (różnica między klasą pozytywną a negatywną)
-        SVM z kalibracją     -> średnia z coef_ wewnętrznych modeli SVM
+        naiwny Bayes -> feature_log_prob_ (różnica między klasą pozytywną a negatywną)
+        SVM z kalibracją -> średnia z coef_ wewnętrznych modeli SVM
     """
     clf = pipeline.named_steps["clf"]
     if hasattr(clf, "coef_"):
