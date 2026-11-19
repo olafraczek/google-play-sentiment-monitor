@@ -4,7 +4,7 @@ A Streamlit app that fetches reviews of **any Google Play app** live and classif
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue) ![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-F7931E) ![Streamlit](https://img.shields.io/badge/Streamlit-app-FF4B4B)
 
-![App overview](docs/app.png)
+![App overview](docs/apps.png)
 
 <!-- If deployed on Streamlit Community Cloud: **[▶ Live demo](https://...)** -->
 
